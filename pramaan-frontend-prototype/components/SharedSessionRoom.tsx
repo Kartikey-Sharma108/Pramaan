@@ -71,7 +71,7 @@ export function SharedSessionRoom({ sessionId = 'PRM-CX0104', scenario = 'normal
   useEffect(() => {
     if (videoRef.current && stream) {
       videoRef.current.srcObject = stream
-      videoRef.current.play().catch(() => {})
+      videoRef.current.play().catch(() => { })
     }
   }, [stream])
 
@@ -299,7 +299,7 @@ export function SharedSessionRoom({ sessionId = 'PRM-CX0104', scenario = 'normal
               box: undefined,
             }))
           }
-        }).catch(() => {})
+        }).catch(() => { })
       } catch { /* detection tick error */ }
       finally { isSamplingRef.current = false }
     }, 300)
@@ -322,7 +322,7 @@ export function SharedSessionRoom({ sessionId = 'PRM-CX0104', scenario = 'normal
         lang: 'en-US',
         onTranscript: setSpeechTranscript,
         onOutcome: (outcome, transcript) => { setSpeechActive(false); setSpeechTranscript(transcript); handleCompleteChallenge(outcome, transcript) },
-        onError: () => {},
+        onError: () => { },
         onEnd: () => setSpeechActive(false),
       })
       speechSessionRef.current = session
@@ -534,7 +534,7 @@ export function SharedSessionRoom({ sessionId = 'PRM-CX0104', scenario = 'normal
       <div className="flex flex-col gap-3">
         {/* Panel Header */}
         <div className="flex items-center justify-between pb-2 border-b border-[var(--border-hairline)]">
-          <span className="text-sm font-bold text-[var(--ink-black)] uppercase tracking-wide">Recruiter Console</span>
+          <span className="text-sm font-semibold text-black uppercase tracking-wide">Recruiter Console</span>
           <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-[var(--cobalt-subtle)] text-[var(--cobalt)] border border-[rgba(49,91,255,0.2)]">Recruiter controls</span>
         </div>
 
@@ -546,7 +546,7 @@ export function SharedSessionRoom({ sessionId = 'PRM-CX0104', scenario = 'normal
             onClick={handleIssueChallenge}
           >
             <Send size={16} />
-            <span>Issue live challenge</span>
+            <span className="text-black font-bold">Issue live challenge</span>
           </button>
         ) : (
           <div className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[var(--surface-subtle)] border border-[var(--border-hairline)] text-sm font-medium text-[var(--text-muted)]">
